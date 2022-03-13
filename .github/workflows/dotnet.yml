@@ -14,7 +14,7 @@ jobs:
       with:
         dotnet-version: 5.0.x
     -name: DOTNET-VERSION
-      run: 	dotnet --version	
+      run: dotnet --version	
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
