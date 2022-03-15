@@ -26,14 +26,14 @@ jobs:
     - name: Report finden	
       run: find ~+ -type f -name "coverage.cobertura.xml"
     - name: Report Erstellen
-      run: CURRENTDATE=$(date) && reportgenerator -reports:$(find ~+ -type f -name "coverage.cobertura.xml") -targetdir: $CURRENTDATE -reporttypes:Html
+      run: reportgenerator -reports:$(find ~+ -type f -name "coverage.cobertura.xml") -targetdir:$(date) -reporttypes:Html
     - name:
       run: >
        git config --global user.name "githubWorkflow@hs.lahnorage.de"
        && git config --global user.password "vvksucWuByv5moxlS2tE"	   
-       && git add /home/runner/work/Autorentool/Autorentool/$CURRENTDATE
+       && git add /home/runner/work/Autorentool/Autorentool/Coverage
        && git commit -m "Commiting Report File" -a
-       && git push https://github.com/funsimator/Autorentool	   
+       && git push https://github.com/funsimator/Autorentool
     #- name: Archive code coverage results
      # uses: actions/upload-artifact@v3
       #with:
