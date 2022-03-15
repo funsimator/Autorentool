@@ -32,3 +32,8 @@ jobs:
       with:
        name: Code Coverage
        path: $(find ~+ -type f -name "index.html")
+    - name: Archive code coverage results
+      uses: actions/upload-artifact@v3
+      with:
+        name: code-coverage-report
+        path: /home/runner/work/Autorentool/Autorentool/Coverage/index.html
