@@ -32,10 +32,4 @@ jobs:
       with:
         name: code-coverage-report
         path: /home/runner/work/Autorentool/Autorentool/Coverage
-    - name: Push
-      run: git config --global user.name "githubWorkflow@hs.lahnorage.de"
-              #&& git config --global user.password "vvksucWuByv5moxlS2tE"
-              #&& git add $(find ~+ -type f -name "index.html")
-              #&& git commit -m "Commiting the Reportfile" -a
-              #&& git commit https://github.com/funsimator/Autorentool
 		
