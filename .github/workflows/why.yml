@@ -33,8 +33,7 @@ jobs:
        && git config --global user.password "vvksucWuByv5moxlS2tE"	   
        && git add /home/runner/work/Autorentool/Autorentool/$CURRENTDATE
        && git commit -m "Commiting Report File" -a
-       && git push https://github.com/funsimator/Autorentool
-	   
+       && git push https://github.com/funsimator/Autorentool	   
     #- name: Archive code coverage results
      # uses: actions/upload-artifact@v3
       #with:
