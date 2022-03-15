@@ -33,8 +33,7 @@ jobs:
        name: Code Coverage
        path: $(find ~+ -type f -name "index.html")
     - name: Push
-       run: >
-        git config --global user.name "githubWorkflow@hs.lahnorage.de"
+       run: git config --global user.name "githubWorkflow@hs.lahnorage.de"
 			 
               #&& git config --global user.password "vvksucWuByv5moxlS2tE"
               #&& git add $(find ~+ -type f -name "index.html")
