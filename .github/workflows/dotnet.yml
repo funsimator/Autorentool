@@ -23,5 +23,7 @@ jobs:
       run: dotnet test --no-build --collect:"XPlat Code Coverage"
     - name: Initialize Reporter
       run: dotnet tool install -g dotnet-reportgenerator-globaltool
+    - name: report finden	
+      run: find ~+ -type f -name "coverage.cobertura.xml" 
     - name: Report Erstellen
       run: reportgenerator -reports:"Path\To\TestProject\TestResults\{guid}\coverage.cobertura.xml" -targetdir:"coveragereport" -reporttypes:Html
