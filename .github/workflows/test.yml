@@ -27,14 +27,11 @@ jobs:
       run: find ~+ -type f -name "coverage.cobertura.xml"
     - name: Report Erstellen
       run: reportgenerator -reports:$(find ~+ -type f -name "coverage.cobertura.xml") -targetdir:$(find ~+ -type d -name "Coverage") -reporttypes:Html
-    - name: Push
-      run: git config --global user.name "githubWorkflow@hs.lahnorage.de"
     - name: Archive code coverage results
       uses: actions/upload-artifact@v3
       with:
        name: Code Coverage
        path: $(find ~+ -type f -name "index.html")
-
 			 
               #&& git config --global user.password "vvksucWuByv5moxlS2tE"
               #&& git add $(find ~+ -type f -name "index.html")
