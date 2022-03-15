@@ -24,6 +24,6 @@ jobs:
     - name: Initialize Reporter
       run: dotnet tool install -g dotnet-reportgenerator-globaltool
     - name: Report finden	
-      run: REPORTPATH = find ~+ -type f -name "coverage.cobertura.xml"
+      run: REPORTPATH=find ~+ -type f -name "coverage.cobertura.xml"
     - name: Report Erstellen
       run: reportgenerator -reports:$REPORTPATH -targetdir:"coveragereport" -reporttypes:Html
