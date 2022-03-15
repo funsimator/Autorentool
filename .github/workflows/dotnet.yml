@@ -33,4 +33,4 @@ jobs:
     - name: Report Erstellen
       run: reportgenerator -reports:$(find ~+ -type f -name "coverage.cobertura.xml") -targetdir:$(find ~+ -type d -name "Coverage") -reporttypes:Html
     - name: Artefakt befüllen
-      run:cd $(find ~+ -type d -name "Coverage") && mv coveragereport/index.html code-coverage.html
+      run: cd $(find ~+ -type d -name "Coverage") && mv coveragereport/index.html code-coverage.html
