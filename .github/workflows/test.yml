@@ -1,0 +1,37 @@
+name: Build, Test and Create Report 
+
+on: [ workflow_dispatch ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.x
+    - name: DOTNET-VERSION
+      run: dotnet --version	
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --no-restore
+    - name: Test
+      run: dotnet test --no-build --collect:"XPlat Code Coverage"
+    - name: Initialize Reporter
+      run: dotnet tool install -g dotnet-reportgenerator-globaltool
+    - name: Report finden	
+      run: find ~+ -type f -name "coverage.cobertura.xml"
+    - name: Report Erstellen
+      run: reportgenerator -reports:$(find ~+ -type f -name "coverage.cobertura.xml") -targetdir:$(find ~+ -type d -name "Coverage") -reporttypes:Html
+    - name: Archive code coverage results
+      uses: actions/upload-artifact@v3
+      with:
+       name: Code Coverage
+       path: $(find ~+ -type f -name "index.html")
+    - name: Push
+      run: $ git config --global user.name "githubWorkflow@hs.lahnorage.de" && $ git config --global user.password "vvksucWuByv5moxlS2tE" && git add $(find ~+ -type f -name "index.html") && git commit -m "Commiting the Reportfile" -a && git commit https://github.com/funsimator/Autorentool
+		
