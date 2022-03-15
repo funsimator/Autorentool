@@ -31,4 +31,11 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: code-coverage-report
-        path: /home/runner/work/Autorentool/Autorentool/Coverage		
+        path: /home/runner/work/Autorentool/Autorentool/Coverage
+    - name:
+      run: >
+       git config --global user.name "githubWorkflow@hs.lahnorage.de"
+       && git config --global user.password "vvksucWuByv5moxlS2tE"	   
+       && git add /home/runner/work/Autorentool/Autorentool/Coverage
+       && git commit -m "Commiting Report File" -a
+       && git push https://github.com/funsimator/Autorentool
