@@ -25,11 +25,6 @@ jobs:
       run: dotnet tool install -g dotnet-reportgenerator-globaltool
     - name: Report finden	
       run: find ~+ -type f -name "coverage.cobertura.xml"
-    - name: Archive code coverage results
-      uses: actions/upload-artifact@v3
-      with:
-       name: Code Coverage
-       path: Coverage/code-coverage.html
     - name: Report Erstellen
       run: reportgenerator -reports:$(find ~+ -type f -name "coverage.cobertura.xml") -targetdir:$(find ~+ -type d -name "Coverage") -reporttypes:Html
     - name: Artefakt befüllen
@@ -38,3 +33,8 @@ jobs:
       uses: actions/download-artifact@v3
       with:
        name: Code Coverage
+    - name: Archive code coverage results
+      uses: actions/upload-artifact@v3
+      with:
+       name: Code Coverage
+       path: Coverage/code-coverage.html
