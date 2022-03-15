@@ -34,3 +34,7 @@ jobs:
       run: reportgenerator -reports:$(find ~+ -type f -name "coverage.cobertura.xml") -targetdir:$(find ~+ -type d -name "Coverage") -reporttypes:Html
     - name: Artefakt befüllen
       run:  mv $(find ~+ -type f -name "index.html") code-coverage.html
+    - name: Download a single artifact
+      uses: actions/download-artifact@v3
+      with:
+       name: Code Coverage
