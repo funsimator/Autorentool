@@ -29,6 +29,3 @@ jobs:
       run: reportgenerator -reports:$(find ~+ -type f -name "coverage.cobertura.xml") -targetdir:"coveragereport" -reporttypes:Html
     - name: Archive code coverage results
       uses: actions/upload-artifact@v3
-        with:
-          name: code-coverage-report
-          path: Coverage/code-coverage.html
