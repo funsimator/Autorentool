@@ -32,11 +32,6 @@ jobs:
        && git add /home/runner/work/Autorentool/Autorentool/$CURRENTDATE
        && git commit -m "Commiting Report File" -a
        && git push https://github.com/funsimator/Autorentool
-    #- name: Archive code coverage results
-     # uses: actions/upload-artifact@v3
-      #with:
-       # name: code-coverage-report
-        #path: /home/runner/work/Autorentool/Autorentool/Coverage
   Test:
     runs-on: ubuntu-latest
     steps:
