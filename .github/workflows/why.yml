@@ -4,10 +4,7 @@ on: [ workflow_dispatch ]
 
 jobs:
   build:
-  Test:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET
@@ -39,7 +36,9 @@ jobs:
      # uses: actions/upload-artifact@v3
       #with:
        # name: code-coverage-report
-        #path: /home/runner/work/Autorentool/Autorentool/Coverage			
+        #path: /home/runner/work/Autorentool/Autorentool/Coverage
+  Test:
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET	
