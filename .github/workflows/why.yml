@@ -31,10 +31,8 @@ jobs:
        && git config --global user.password "vvksucWuByv5moxlS2tE"	   
        && git add /home/runner/work/Autorentool/Autorentool/$CURRENTDATE
        && git commit -m "Commiting Report File" -a
-       && git push https://github.com/funsimator/Autorentool
-	   
+       && git push https://github.com/funsimator/Autorentool	   
   Test:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Setup .NET
