@@ -42,5 +42,4 @@ jobs:
         #path: /home/runner/work/Autorentool/Autorentool/Coverage			
     steps:
     - uses: actions/checkout@v2
-    - name: Setup .NET
-	
+    - name: Setup .NET	
