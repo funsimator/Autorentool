@@ -26,7 +26,7 @@ jobs:
     - name: Report finden	
       run: find ~+ -type f -name "coverage.cobertura.xml"
     - name: Report Erstellen
-      run: reportgenerator -reports:$(find ~+ -type f -name "coverage.cobertura.xml") -targetdir:$(date) -reporttypes:Html
+      run: CURRENTDATE=$(date) && reportgenerator -reports:$(find ~+ -type f -name "coverage.cobertura.xml") -targetdir:$(date) -reporttypes:Html
     - name:
       run: >
        git config --global user.name "githubWorkflow@hs.lahnorage.de"
