@@ -13,7 +13,7 @@ jobs:
         with:
           title: "Workflow failed"
           body: |
-            ### Agenda
+            ### Run Failed
             - Gestartet von ${{ github.actor }}
             - Genauere Infomationen hier:
             - https://github.com/funsimator/Autorentool/actions/workflows/dotnet.yml
