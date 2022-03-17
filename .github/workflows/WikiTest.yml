@@ -14,6 +14,7 @@ jobs:
           title: "Workflow failed"
           body: |
             ### Run Failed
+            - Workflow name:${{  github.workflow }}
             - Gestartet von ${{ github.actor }}
             - Genauere Infomationen zu dem Run hier:
             - https://github.com/funsimator/Autorentool/actions/runs/${{ github.run_id }}
