@@ -35,7 +35,8 @@ jobs:
        && git commit -m "Commiting Report File" -a
        && git push https://github.com/funsimator/Autorentool
   production-deploy:
-    runs-on: ubuntu-latest  
+    runs-on: ubuntu-latest
+    if: ${{ failure() }}	
     steps:
     - name: The job has failed
       run: >
