@@ -15,7 +15,7 @@ jobs:
           body: |
             ### Agenda
             - [ ] ${{ github.action }}
-            - [ ] Check-ins
+            - Gestartet von ${{ github.actor }}
             - [ ] Discussion points
             - [ ] Post the recording
                     
