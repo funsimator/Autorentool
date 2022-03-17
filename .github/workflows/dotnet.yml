@@ -6,7 +6,9 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
+    permissions:
+      issues: write
+ 
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET
@@ -32,3 +34,19 @@ jobs:
       with:
         name: code-coverage-report
         path: /home/runner/work/Autorentool/Autorentool/Coverage
+    - name: The job has failed
+      if: ${{ failure() }}
+      uses: imjohnbo/issue-bot@3daae12aa54d38685d7ff8459fc8a2aee8cea98b
+        with:
+          title: "Workflow failed"
+          body: |
+            ### Run Failed
+            - Workflow name:  ${{  github.workflow }}
+            - Gestartet von ${{ github.actor }}
+            - Genauere Infomationen zu dem Run hier:
+            - https://github.com/funsimator/Autorentool/actions/runs/${{ github.run_id }}
+          pinned: false
+          close-previous: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}	
+	  
