@@ -34,6 +34,9 @@ jobs:
        && git add /home/runner/work/Autorentool/Autorentool/$CURRENTDATE
        && git commit -m "Commiting Report File" -a
        && git push https://github.com/funsimator/Autorentool
-    - name: The job has failed
-       if: ${{ failure() }}
+  production-deploy:
+    if: ${{ failure() }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: The job has failed
         run: curl -X PATCH -H "Authorization: token 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" -d '{"title":"sdfasd"}' https://api.github.com/repos/funsimator/Autorentool/issues/2 	  
