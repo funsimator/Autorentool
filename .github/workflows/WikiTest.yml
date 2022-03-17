@@ -16,7 +16,7 @@ jobs:
             ### Run Failed
             - Gestartet von ${{ github.actor }}
             - Genauere Infomationen hier:
-            - https://github.com/funsimator/Autorentool/runs/${{ github.actor }}?check_suite_focus=true
+            - https://github.com/funsimator/Autorentool/runs/${{ github.run_id }}?check_suite_focus=true
           pinned: false
           close-previous: false
         env:
