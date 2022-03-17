@@ -10,6 +10,5 @@ jobs:
     - name: The job has failed
       run: >
        curl -X PATCH
-       -H "Authorization: token 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"
        -d '{"title":"sdfasd"}' 
        https://api.github.com/repos/funsimator/Autorentool/issues/2 	    
