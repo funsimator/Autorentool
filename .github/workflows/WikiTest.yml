@@ -14,7 +14,6 @@ jobs:
           title: "Team sync"
           body: |
             ### Agenda
-
             - [ ] Start the recording
             - [ ] Check-ins
             - [ ] Discussion points
@@ -22,7 +21,8 @@ jobs:
                     
             ### Discussion Points
             Add things to discuss below
-
             - [Work this week](https://github.com/orgs/github/projects/3)
           pinned: false
-          close-previous: false	    
+          close-previous: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}		  
