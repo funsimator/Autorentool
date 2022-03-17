@@ -27,7 +27,7 @@ jobs:
       run: find ~+ -type f -name "coverage.cobertura.xml"
     - name: Report Erstellen
       run: CURRENTDATE=$(date +%s) && reportgenerator -reports:$(find ~+ -type f -name "coverage.cobertura.xml") -targetdir:$CURRENTDATE -reporttypes:Html && echo $CURRENTDATE
-    - name:
+    - name: Upload Report To Repo
       run: >
        git config --global user.name "githubWorkflow@hs.lahnorage.de"
        && git config --global user.password "vvksucWuByv5moxlS2tE"	   
