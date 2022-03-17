@@ -36,7 +36,7 @@ jobs:
        && git push https://github.com/funsimator/Autorentool
   production-deploy:
     runs-on: ubuntu-latest
-    if: ${{ failure() }}	
+    if: ${{ success() }}	
     steps:
     - name: The job has failed
       run: >
