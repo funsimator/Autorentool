@@ -11,11 +11,11 @@ jobs:
       - name: Create team sync issue
         uses: imjohnbo/issue-bot@3daae12aa54d38685d7ff8459fc8a2aee8cea98b
         with:
-          title: "Build and Test Run Failed"
+          title: "Team sync"
           body: |
-            ### Run Failed
+            ### Agenda
 
-           Mehr Informationen hier ${{ github.action }}
+            - [ ] Start the recording
             - [ ] Check-ins
             - [ ] Discussion points
             - [ ] Post the recording
@@ -25,6 +25,4 @@ jobs:
 
             - [Work this week](https://github.com/orgs/github/projects/3)
           pinned: false
-          close-previous: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}		  
+          close-previous: false	    
