@@ -47,5 +47,4 @@ jobs:
           pinned: false
           close-previous: false
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        if: ${{ failure() }}		  
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}	  
