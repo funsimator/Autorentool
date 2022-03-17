@@ -7,11 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ success() }}	
     steps:
-    - name: The job has failed
+    - name: Wiki API
       run: >
        curl -X PATCH
-       -H "Authorization: token ghp_pw7VVHd6LO
-       KfViLMl9Ug63lj9jTmcv44V1nx"
+       -H "Authorization: token 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"
        -d '{"title":"sdfasd"}' 
-       https://api.github.com/repos
-       /funsimator/Autorentool/issues/2 	    
+       https://api.github.com/repos/funsimator/Autorentool/issues/2 	    
