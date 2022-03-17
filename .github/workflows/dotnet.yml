@@ -23,7 +23,7 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Test
-      run: dotnet test --no-build --collect:"XPlat Code Coverage"
+      run: dotnet test --no-buil --collect:"XPlat Code Coverage"
     - name: Initialize Reporter
       run: dotnet tool install -g dotnet-reportgenerator-globaltool
     - name: Report finden	
