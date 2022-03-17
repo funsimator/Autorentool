@@ -38,7 +38,7 @@ jobs:
     runs-on: ubuntu-latest  
     steps:
     - name: The job has failed
-      run:>
+      run: >
        curl -X PATCH
        -H "Authorization: token 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"
        -d '{"title":"sdfasd"}' 
