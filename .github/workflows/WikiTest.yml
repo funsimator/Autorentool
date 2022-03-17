@@ -14,14 +14,9 @@ jobs:
           title: "Team sync"
           body: |
             ### Agenda
-            - [ ] ${{ github.action }}
             - Gestartet von ${{ github.actor }}
-            - [ ] Discussion points
-            - [ ] Post the recording
-                    
-            ### Discussion Points
-            Add things to discuss below
-            - [Work this week](https://github.com/orgs/github/projects/3)
+            - Genauere Infomationen hier:
+            - https://github.com/funsimator/Autorentool/actions/workflows/dotnet.yml
           pinned: false
           close-previous: false
         env:
