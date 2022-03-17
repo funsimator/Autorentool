@@ -36,4 +36,4 @@ jobs:
        && git push https://github.com/funsimator/Autorentool
     - name: The job has failed
       if: ${{ failure() }}
-      run: curl -X PATCH -H "Authorization: token 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" -d '{"title":"sdfasd"}' https://api.github.com/repos/funsimator/Autorentool/issues/2 	  
+       run: curl -X PATCH -H "Authorization: token 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" -d '{"title":"sdfasd"}' https://api.github.com/repos/funsimator/Autorentool/issues/2 	  
