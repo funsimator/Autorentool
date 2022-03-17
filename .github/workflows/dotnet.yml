@@ -2,13 +2,14 @@ name: Build, Test and Create Report
 
 on: [ workflow_dispatch ]
 
+permissions:
+  issues: write
+
 jobs:
   build:
 
     runs-on: ubuntu-latest
-    permissions:
-      issues: write
- 
+
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET
