@@ -47,4 +47,6 @@ jobs:
           - https://github.com/funsimator/Autorentool/actions/runs/${{ github.run_id }}
         pinned: false
         close-previous: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       if: ${{ failure() }}			  
