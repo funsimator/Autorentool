@@ -5,7 +5,7 @@ jobs:
   build:
     runs-on: windows-latest    
     env:
-      dotNetVersion: net5.0
+      dotNetVersion: net6.0
       dotNetConfiguration: Release
       runtimeTarget: win-x86
     outputs: # https://stackoverflow.com/questions/59175332/using-output-from-a-previous-job-in-a-new-one-in-a-github-action
