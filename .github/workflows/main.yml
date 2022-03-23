@@ -52,6 +52,6 @@ jobs:
       uses: coverallsapp/github-action@master
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
-        path-to-lcov: AuthoringTool/Coverlet/coverage.info 
+        path-to-lcov: Coverlet/coverage.info 
               
  
