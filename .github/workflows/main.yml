@@ -1,0 +1,56 @@
+on: [ workflow_dispatch ]
+
+  
+jobs:
+  build:
+    runs-on: windows-latest    
+    env:
+      dotNetVersion: net5.0
+      dotNetConfiguration: Release
+      runtimeTarget: win-x86
+    outputs: # https://stackoverflow.com/questions/59175332/using-output-from-a-previous-job-in-a-new-one-in-a-github-action
+      Version: ${{ steps.gitversion.outputs.nuGetVersionV2 }} 
+      CommitsSinceVersionSource: ${{ steps.gitversion.outputs.CommitsSinceVersionSource }}   
+    steps:
+    # checkout the repo
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0 #fetch-depth is needed for GitVersion
+        
+    #Install and calculate the new version with GitVersion  
+    - name: Install GitVersion
+      uses: gittools/actions/gitversion/setup@v0.9.7
+      with:
+        versionSpec: '5.x'
+    - name: Determine Version
+      uses: gittools/actions/gitversion/execute@v0.9.7
+      id: gitversion # step id used as reference for output values
+    - name: Display GitVersion outputs
+      run: |
+        echo "MajorMinorPatch: ${{ steps.gitversion.outputs.majorMinorPatch }}"
+        echo "NuGetVersionV2: ${{ steps.gitversion.outputs.nuGetVersionV2 }}"   
+        echo "CommitsSinceVersionSource: ${{ steps.gitversion.outputs.CommitsSinceVersionSource }}"    
+        
+     
+    # install dependencies, build, and test
+    - name: Setup Dotnet for use with actions
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '5.0.100'
+    
+    #Test service
+    - name: Variable Substitution appsettings file for tests
+      uses: microsoft/variable-substitution@v1
+      with:
+        files: 'FeatureFlags/FeatureFlags.Tests/appsettings.json'
+      env:
+        AppSettings.ClientSecret: "${{ secrets.ClientSecret }}"    
+    - name: Run automated unit and integration tests
+      run: dotnet test  Autorentool/AuthoringToolTest/AuthoringToolTest.csproj  --configuration ${{ env.dotNetConfiguration }} --settings:./FeatureFlags/FeatureFlags.Tests/CodeCoverage.runsettings /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov
+    - name: Publish coverage report to coveralls.io
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        path-to-lcov: FeatureFlags/FeatureFlags.Tests/TestResults/coverage.info 
+              
+ 
