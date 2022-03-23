@@ -36,7 +36,7 @@ jobs:
     - name: Setup Dotnet for use with actions
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '5.0.100'
+        dotnet-version: '6.x'
     
     #Test service
     #- name: Variable Substitution appsettings file for tests
