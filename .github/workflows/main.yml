@@ -1,5 +1,5 @@
 name: Coverlet Code Coverage 
-on: [ workflow_dispatch ]
+on: [ "workflow_dispatch" , "push" ]
 
   
 jobs:
@@ -53,5 +53,7 @@ jobs:
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         path-to-lcov: AuthoringToolTest/TestResults/coverage.info 
-              
- 
+    - name: Coveralls Finished
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.github_token }}
