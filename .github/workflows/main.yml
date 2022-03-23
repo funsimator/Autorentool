@@ -39,14 +39,14 @@ jobs:
         dotnet-version: '5.0.100'
     
     #Test service
-    - name: Variable Substitution appsettings file for tests
-      uses: microsoft/variable-substitution@v1
-      with:
-        files: 'FeatureFlags/FeatureFlags.Tests/appsettings.json'
-      env:
-        AppSettings.ClientSecret: "${{ secrets.ClientSecret }}"    
+    #- name: Variable Substitution appsettings file for tests
+     # uses: microsoft/variable-substitution@v1
+      #with:
+       # files: 'FeatureFlags/FeatureFlags.Tests/appsettings.json'
+      #env:
+        #AppSettings.ClientSecret: "${{ secrets.ClientSecret }}"    
     - name: Run automated unit and integration tests
-      run: dotnet test  Autorentool/AuthoringToolTest/AuthoringToolTest.csproj  --configuration ${{ env.dotNetConfiguration }} --settings:./FeatureFlags/FeatureFlags.Tests/CodeCoverage.runsettings /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov
+      run: dotnet test   Autorentool/AuthoringTool/AuthoringTool.csproj   --configuration ${{ env.dotNetConfiguration }} --settings:./FeatureFlags/FeatureFlags.Tests/CodeCoverage.runsettings /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov
     - name: Publish coverage report to coveralls.io
       uses: coverallsapp/github-action@master
       with:
